@@ -33,6 +33,7 @@ public class LuasHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_luas_home);
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mCardView = findViewById(R.id.card_view);
 
@@ -45,6 +46,12 @@ public class LuasHomeActivity extends AppCompatActivity {
         getBitmapFromURLAsync.execute("https://images.unsplash.com/photo-1532534716609-075d657a64b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dc93b6e23e2c5da88edb3a4c9eee9b57&auto=format&fit=crop&w=1350&q=80");
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public int getDisplayWidth() {

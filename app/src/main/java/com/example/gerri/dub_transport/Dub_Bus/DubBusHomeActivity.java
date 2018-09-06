@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -31,7 +32,9 @@ public class DubBusHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dub_bus_home);
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+
+         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mCardView = findViewById(R.id.card_view);
 
@@ -44,6 +47,12 @@ public class DubBusHomeActivity extends AppCompatActivity {
         getBitmapFromURLAsync.execute("https://images.unsplash.com/photo-1532534716609-075d657a64b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dc93b6e23e2c5da88edb3a4c9eee9b57&auto=format&fit=crop&w=1350&q=80");
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public int getDisplayWidth() {
